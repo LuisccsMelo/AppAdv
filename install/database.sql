@@ -128,31 +128,45 @@ CREATE TABLE IF NOT EXISTS `lead_status` (
 
 CREATE TABLE IF NOT EXISTS `clients` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `company_name` varchar(150) COLLATE utf8_unicode_ci NOT NULL,
-  `address` text COLLATE utf8_unicode_ci,
-  `city` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `state` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `zip` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `country` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `created_date` date NOT NULL,
-  `website` text COLLATE utf8_unicode_ci,
-  `phone` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `currency_symbol` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL,
+  'nome_completo' VARCHAR(255) NOT NULL utf8_unicode_ci NOT NULL,
+  `nacionalidade` VARCHAR(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `estado_civil` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `profissao` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `data_nascimento` date COLLATE utf8_unicode_ci DEFAULT NULL,
+  `cpf` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL,
+  'endereco' VARCHAR(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `telefone1` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `telefone2` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `email` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  'prioridade' ENUM('Sim', 'Não'),
+  'qual' VARCHAR(255) utf8_unicode_ci DEFAULT "Nenhuma",
+  'observacoes' TEXT DEFAULT NULL,
+  `criado_em` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   `starred_by` mediumtext COLLATE utf8_unicode_ci NOT NULL,
   `group_ids` text COLLATE utf8_unicode_ci NOT NULL,
   `deleted` tinyint(1) NOT NULL DEFAULT '0',
   `is_lead` tinyint(1) NOT NULL DEFAULT '0',
   `lead_status_id` int(11) NOT NULL,
-  `owner_id` int(11) NOT NULL,
   `created_by` int(11) NOT NULL,
-  `sort` int(11) NOT NULL DEFAULT '0',
   `lead_source_id` int(11) NOT NULL,
   `last_lead_status` text COLLATE utf8_unicode_ci NOT NULL,
-  `client_migration_date` date NOT NULL,
-  `vat_number` text COLLATE utf8_unicode_ci,
-  `currency` varchar(3) COLLATE utf8_unicode_ci DEFAULT NULL,
   `disable_online_payment` tinyint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+
+
+CREATE TABLE `clientes_pj` (
+  `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `cliente_id` INT UNSIGNED NOT NULL,
+  `razao_social` VARCHAR(255) NOT NULL,
+  `nome_fantasia` VARCHAR(255) DEFAULT NULL,
+  `tipo` ENUM('Matriz', 'Filial') DEFAULT 'Matriz',
+  `endereco` VARCHAR(255) DEFAULT NULL,
+  `cnpj` VARCHAR(20) NOT NULL,
+  `inscricao_estadual` VARCHAR(50) DEFAULT NULL,
+  `inscricao_municipal` VARCHAR(50) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  CONSTRAINT `fk_clientes_pj_cliente` FOREIGN KEY (`cliente_id`) REFERENCES `clients` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
 
 
@@ -375,6 +389,7 @@ CREATE TABLE IF NOT EXISTS `invoice_payments` (
   KEY `id_2` (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
 
+########################################################################################################################################
 
 CREATE TABLE IF NOT EXISTS `leave_applications` (
   `id` int(11) NOT NULL AUTO_INCREMENT,

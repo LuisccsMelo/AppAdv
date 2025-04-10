@@ -119,7 +119,19 @@ class Clients extends Security_Controller {
             "country" => $this->request->getPost('country'),
             "phone" => $this->request->getPost('phone'),
             "website" => $this->request->getPost('website'),
-            "vat_number" => $this->request->getPost('vat_number')
+            "vat_number" => $this->request->getPost('vat_number'),
+
+            "nome_completo" => $this->request->getPost('nome_completo'),
+            "nacionalidade" => $this->request->getPost('nacionalidade'),
+            "estado_civil" => $this->request->getPost('estado_civil'),
+            "profissao" => $this->request->getPost('profissao'),
+            "data_nascimento" => $this->request->getPost('data_nascimento'),
+            "cpf" => $this->request->getPost('cpf'),
+            "endereco" => $this->request->getPost("endereco"),
+            "telefone2" => $this->request->getPost('telefone2'),
+            "prioridade" => $this->request->getPost('prioridade'),
+            "qual" => $this->request->getPost('qual'),
+            "observacoes" => $this->request->getPost('observacoes')
         );
 
         if ($this->login_user->user_type === "staff") {

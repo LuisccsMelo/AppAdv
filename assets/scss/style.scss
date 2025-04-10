@@ -188,6 +188,9 @@ i.online{
 .b-water{
     border-color: rgba(255,255,255,0.2) !important;
 }
+.no-border{
+    border: none !important;
+}
 .b-white{
     border-color: $white !important;
 }
@@ -351,6 +354,7 @@ i.online{
 
 .load-more {
     position: relative;
+    border: none;
     width: 100%;
     border-radius: 50px;
     &.spinning-btn{
@@ -470,6 +474,7 @@ i.online{
 
 .add-member-button{
     @media (max-width: 400px){
+        border: none;
         padding-right: 0 !important;
     }
 }
@@ -515,6 +520,7 @@ i.online{
 /*card*/
 
 .card{
+    border: none;
     margin-bottom: 20px;
     transition: all 1s;
 
@@ -806,6 +812,7 @@ label{
         position: relative;
         box-sizing: border-box;
         font-size: 14px;
+        border-color: #f6f8f9;
         background-color: #f6f8f9;
         color: $light-link-color;
         box-shadow: none;
@@ -814,8 +821,6 @@ label{
 
     textarea{
         height: 75px;
-        border: 1px solid #4d4d4d !important;
-        box-shadow: none !important;
         &:focus{
             box-shadow: none;
         }
@@ -831,7 +836,7 @@ label{
 
     &.white {
         .form-control {
-            border-color: #8f8f8f;
+            border-color: #fff;
             background-color: #fff;
         }
 
@@ -876,7 +881,7 @@ label{
         }
 
         &:focus, &.white:focus {
-            border-color: #ebeff2;
+            border-color: #949494;
             background-color: #ebeff2;
         }
     }
@@ -944,6 +949,7 @@ label{
 /*bootstrap modal*/
 
 .modal-content {
+    border: none;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
@@ -1319,6 +1325,7 @@ body.modal-open {
     }
 
     textarea {
+        border: none;
         background-color: transparent;
         height: 100%;
         line-height: 30px;
@@ -1328,6 +1335,7 @@ body.modal-open {
 }
 
 .notepad-title {
+    border: none !important;
     padding-left: 7px;
     border-left: 5px solid #6690F4 !important;
 }
@@ -1510,6 +1518,7 @@ svg:not(.gantt) {
     outline: none;
     height: 265px;
     padding: 5px;
+    border: none;
     color: #000;
     font-size: 110%;
     background: rgb(255, 246, 179);
@@ -2525,6 +2534,7 @@ table.dataTable td.dataTables_empty {
 
     input{
         background: #F6F8F9;
+        border: none;
         padding: 8px 14px;
 
         &:focus{
@@ -3633,12 +3643,14 @@ input[type="color"] {
     }
 }
 
-input[type="color"]::-webkit-color-swatch 
+input[type="color"]::-webkit-color-swatch {
+    border: none;
+}
 
 input.form-control,
 select.form-control,
 textarea.form-control {
-    border: 1px solid #272727 !important;
+    border: 1px solid #949494 !important;
     box-shadow: none !important;
     border-radius: 4px;
 }
