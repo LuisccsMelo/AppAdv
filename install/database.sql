@@ -389,7 +389,6 @@ CREATE TABLE IF NOT EXISTS `invoice_payments` (
   KEY `id_2` (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
 
-########################################################################################################################################
 
 CREATE TABLE IF NOT EXISTS `leave_applications` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -1373,16 +1372,16 @@ CREATE TABLE IF NOT EXISTS `client_groups` (
 
 
 CREATE TABLE IF NOT EXISTS `company` (
-`id` int(11) NOT NULL AUTO_INCREMENT,
-`name` text COLLATE utf8_unicode_ci NOT NULL,
-`address` text COLLATE utf8_unicode_ci NOT NULL,
-`phone` text COLLATE utf8_unicode_ci NOT NULL,
-`email` text COLLATE utf8_unicode_ci NOT NULL,
-`website` text COLLATE utf8_unicode_ci NOT NULL,
-`vat_number` text COLLATE utf8_unicode_ci NOT NULL,
-`is_default` tinyint(1) NOT NULL DEFAULT '0',
-`deleted` tinyint(1) NOT NULL DEFAULT '0',
-PRIMARY KEY (`id`)
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` text COLLATE utf8_unicode_ci NOT NULL,
+  `address` text COLLATE utf8_unicode_ci NOT NULL,
+  `phone` text COLLATE utf8_unicode_ci NOT NULL,
+  `email` text COLLATE utf8_unicode_ci NOT NULL,
+  `website` text COLLATE utf8_unicode_ci NOT NULL,
+  `vat_number` text COLLATE utf8_unicode_ci NOT NULL,
+  `is_default` tinyint(1) NOT NULL DEFAULT '0',
+  `deleted` tinyint(1) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;#
 
 
@@ -1391,12 +1390,12 @@ INSERT INTO `company` (`id`, `name`, `is_default`) VALUES
 
 
 CREATE TABLE IF NOT EXISTS `task_priority` (
-`id` INT NOT NULL AUTO_INCREMENT ,
-`title` VARCHAR(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL ,
-`icon` VARCHAR(20) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL ,
-`color` VARCHAR(7) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL ,
-`deleted` TINYINT(1) NOT NULL DEFAULT '0' ,
-PRIMARY KEY (`id`)
+  `id` INT NOT NULL AUTO_INCREMENT ,
+  `title` VARCHAR(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL ,
+  `icon` VARCHAR(20) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL ,
+  `color` VARCHAR(7) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL ,
+  `deleted` TINYINT(1) NOT NULL DEFAULT '0' ,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
 
 
@@ -1454,14 +1453,14 @@ CREATE TABLE IF NOT EXISTS `checklist_items` (
 
 
 CREATE TABLE IF NOT EXISTS `dashboards` (
-`id` int(11) NOT NULL AUTO_INCREMENT,
-`user_id` int(11) NOT NULL,
-`title` text COLLATE utf8_unicode_ci,
-`data` text COLLATE utf8_unicode_ci,
-`color` VARCHAR(15) NOT NULL,
-`sort` INT(11) NOT NULL DEFAULT '0',
-`deleted` tinyint(1) NOT NULL DEFAULT '0',
-PRIMARY KEY (`id`)
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) NOT NULL,
+  `title` text COLLATE utf8_unicode_ci,
+  `data` text COLLATE utf8_unicode_ci,
+  `color` VARCHAR(15) NOT NULL,
+  `sort` INT(11) NOT NULL DEFAULT '0',
+  `deleted` tinyint(1) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
 
 
@@ -1500,6 +1499,3 @@ CREATE TABLE IF NOT EXISTS `verification` (
 `deleted` int(1) NOT NULL DEFAULT '0',
 PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
-
-
-
